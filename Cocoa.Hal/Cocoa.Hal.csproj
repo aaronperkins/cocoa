@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Iot.Device.Bindings" Version="0.1.0-prerelease.19120.1" />
+    <PackageReference Include="System.Device.Gpio" Version="0.1.0-prerelease.19120.1" />
+    <PackageReference Include="System.IO.Ports" Version="4.6.0-preview4.19114.5" />
+  </ItemGroup>
+
+</Project>
