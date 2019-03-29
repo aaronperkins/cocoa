@@ -37,11 +37,15 @@ namespace Cocoa.Hal.Models
             }
         }
 
+        public int Delay { get; set; }
+
         public int Id { get; set; }
 
         public ICollection<Joint> Joints { get; set; }
 
-        public int TotalTime { get
+        public int TotalTime
+        {
+            get
             {
                 if (Joints.Count > 0)
                     return Joints.Max(j => j.Duration);
