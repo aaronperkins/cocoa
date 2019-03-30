@@ -1,4 +1,4 @@
-﻿using Cocoa.Hal.Models;
+﻿using Cocoa.Data.Models;
 using System;
 using System.IO.Ports;
 using System.Text;
@@ -16,7 +16,7 @@ namespace Cocoa.Hal
         private readonly StringBuilder _receiveBuffer;
         private System.Timers.Timer _statusTimer;
 
-        public Driver(string portName, int baudRate, int updateRate = 100)
+        public Driver(string portName, int baudRate, int updateRate = 33)
         {
             _port = new SerialPort
             {

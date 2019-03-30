@@ -1,4 +1,4 @@
-﻿using Cocoa.Hal.Models;
+﻿using Cocoa.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -24,15 +24,15 @@ namespace Cocoa.Hal
 
             try
             {
-                int newPoseId = pose.Id;
-                if (_driver.LastFinishedPose.Id == newPoseId)
+                int newPoseId = pose.PoseId;
+                if (_driver.LastFinishedPose.PoseId == newPoseId)
                     newPoseId++;
 
                 await _driver.SendPose(pose);
 
                 var timer = new Stopwatch();
                 timer.Start();
-                while (newPoseId != _driver.LastFinishedPose.Id)
+                while (newPoseId != _driver.LastFinishedPose.PoseId)
                 {
                     if (timer.ElapsedMilliseconds > pose.TotalTime + 100) // allow a little buffer on the time out for servos to settle
                     {                       

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Cocoa.Hal.Models
+namespace Cocoa.Data.Models
 {
     public class Pose
     {
@@ -16,7 +16,7 @@ namespace Cocoa.Hal.Models
         {
             var poseParse = pose.Substring(0, pose.Length - 1).Split(",");
 
-            Id = Convert.ToInt32(poseParse[1]);
+            PoseId = Convert.ToInt32(poseParse[1]);
             int i = 0;
             for (int j = 2; j < poseParse.Length; j += 2)
             {
@@ -26,7 +26,7 @@ namespace Cocoa.Hal.Models
                 {
                     var joint = new Joint()
                     {
-                        Id = i,
+                        ServoId = i,
                         Angle = angle,
                         Duration = Convert.ToInt32((poseParse[j + 1]))
                     };
@@ -39,9 +39,11 @@ namespace Cocoa.Hal.Models
 
         public int Delay { get; set; }
 
-        public int Id { get; set; }
+        public List<Joint> Joints { get; set; }
 
-        public ICollection<Joint> Joints { get; set; }
+        public int PoseId { get; set; }
+
+        public string Name { get; set; }
 
         public int TotalTime
         {
@@ -59,11 +61,11 @@ namespace Cocoa.Hal.Models
             StringBuilder builder = new StringBuilder();
 
             builder.Append("<P,");
-            builder.Append(this.Id);
-            int numberOfJoints = Joints.Max(j => j.Id) + 1;
+            builder.Append(this.PoseId);
+            int numberOfJoints = Joints.Max(j => j.ServoId) + 1;
             for (int i = 0; i < numberOfJoints; i++)
             {
-                var joint = this.Joints.Where(j => j.Id == i).FirstOrDefault();
+                var joint = this.Joints.Where(j => j.ServoId == i).FirstOrDefault();
 
                 if (joint == null)
                 {

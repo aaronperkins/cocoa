@@ -1,5 +1,5 @@
 using Cocoa.Hal;
-using Cocoa.Hal.Models;
+using Cocoa.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System.Threading.Tasks;
@@ -10,12 +10,14 @@ namespace Cocoa.ControlPanel.Controllers
     public class CommandController : Controller
     {
         private IConfiguration _configuration;
-        private Driver _driver;
+        private readonly Driver _driver;
+        private readonly PoseEngine _poseEngine;
 
-        public CommandController(IConfiguration Configuration, Driver driver)
+        public CommandController(IConfiguration Configuration, Driver driver, PoseEngine poseEngine)
         {
             _configuration = Configuration;
             _driver = driver;
+            _poseEngine = poseEngine;
         }
 
         [HttpPost("[action]")]
@@ -33,7 +35,7 @@ namespace Cocoa.ControlPanel.Controllers
                 _driver.Open();
 
             var pose = new Pose("<P,50,-1,0,3.1048,1000,1.5647,1000,0.0000,1000,3.1048,1000,4.7185,1000,6.2770,1000,3.0680,1000,4.7124,1000,6.2770,1000,3.1845,1000,1.5401,1000,0.0000,1000>");
-            await _driver.SetPose(pose);
+            await _poseEngine.PlayPose(pose);
 
             await _driver.Relax();
 
@@ -54,7 +56,7 @@ namespace Cocoa.ControlPanel.Controllers
             if (!_driver.IsOpen)
                 _driver.Open();
 
-            await _driver.SetPose(pose);
+            await _poseEngine.PlayPose(pose);
 
             return Ok();
         }
@@ -90,7 +92,7 @@ namespace Cocoa.ControlPanel.Controllers
 
             var pose = new Pose("<P,30,-1.0000,1000,3.1232,1000,2.0678,1000,1.3683,1000,3.1170,1000,4.1540,1000,4.9271,1000,3.1109,1000,4.4915,1000,4.9149,1000,3.1600,1000,1.6935,1000,1.3683,1000>");
 
-            await _driver.SetPose(pose);
+            await _poseEngine.PlayPose(pose);
 
             return Ok();
         }

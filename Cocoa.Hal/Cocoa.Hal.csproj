@@ -10,4 +10,8 @@
     <PackageReference Include="System.IO.Ports" Version="4.6.0-preview4.19114.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Cocoa.Data\Cocoa.Data.csproj" />
+  </ItemGroup>
+
 </Project>

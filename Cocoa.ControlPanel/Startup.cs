@@ -1,3 +1,4 @@
+using Cocoa.Data;
 using Cocoa.Hal;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -62,10 +63,14 @@ namespace Cocoa.ControlPanel
                 configuration.RootPath = "ClientApp/build";
             });
 
+            services.AddScoped<CocoaContext>(_ => new CocoaContext());
+
             var serialPort = Configuration["SerialPort:Name"];
             var baudRate = Convert.ToInt32(Configuration["SerialPort:BaudRate"]); ;
             var driver = new Driver(serialPort, baudRate);
+            var poseEngine = new PoseEngine(driver);
             services.AddSingleton<Driver>(driver);
+            services.AddSingleton<PoseEngine>(poseEngine);
         }
     }
 }

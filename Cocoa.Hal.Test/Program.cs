@@ -1,4 +1,4 @@
-﻿using Cocoa.Hal.Models;
+﻿using Cocoa.Data.Models;
 using System;
 
 namespace Cocoa.Hal.Test
@@ -31,7 +31,7 @@ namespace Cocoa.Hal.Test
         {
             if (pose != null)
             {
-                Console.WriteLine("Pose " + pose.Id + " Done: " + pose.TotalTime);
+                Console.WriteLine("Pose " + pose.PoseId + " Done: " + pose.TotalTime);
             }
             else
             {

@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cocoa.Hal.Test", "Cocoa.Hal
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cocoa.ControlPanel", "Cocoa.ControlPanel\Cocoa.ControlPanel.csproj", "{EA002E0F-E025-4C25-919F-07EE00ED3762}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cocoa.Data", "Cocoa.Data\Cocoa.Data.csproj", "{388CB7D6-FA39-4AC2-8AB4-68064BE3FAC1}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Firmware\Ax12a\AX12A\AX12A.vcxitems*{92d515db-57a9-420f-8e54-50cb83834e0a}*SharedItemsImports = 4
@@ -68,6 +70,14 @@ Global
 		{EA002E0F-E025-4C25-919F-07EE00ED3762}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EA002E0F-E025-4C25-919F-07EE00ED3762}.Release|x86.ActiveCfg = Release|Any CPU
 		{EA002E0F-E025-4C25-919F-07EE00ED3762}.Release|x86.Build.0 = Release|Any CPU
+		{388CB7D6-FA39-4AC2-8AB4-68064BE3FAC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{388CB7D6-FA39-4AC2-8AB4-68064BE3FAC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{388CB7D6-FA39-4AC2-8AB4-68064BE3FAC1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{388CB7D6-FA39-4AC2-8AB4-68064BE3FAC1}.Debug|x86.Build.0 = Debug|Any CPU
+		{388CB7D6-FA39-4AC2-8AB4-68064BE3FAC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{388CB7D6-FA39-4AC2-8AB4-68064BE3FAC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{388CB7D6-FA39-4AC2-8AB4-68064BE3FAC1}.Release|x86.ActiveCfg = Release|Any CPU
+		{388CB7D6-FA39-4AC2-8AB4-68064BE3FAC1}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
